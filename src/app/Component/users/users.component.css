@@ -1,0 +1,23 @@
+form {
+    padding:10px;
+}
+.row{
+  margin:10px;
+
+}
+label{
+ margin-bottom: 10px;
+}
+h4{
+  color:red;
+}
+.row .col-2 button{
+  width:150px;
+ 
+}
+
+span{
+  margin:10px;
+  color:red;
+  font-size:20px;
+}

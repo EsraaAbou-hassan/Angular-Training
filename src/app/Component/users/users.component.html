@@ -1,0 +1,259 @@
+<div class="container" text-align="center">
+  <form [formGroup]="UserForm" (ngSubmit)="save(UserForm)">
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="name">Name</label>
+        <input type="text" class="form-control"
+        [(ngModel)]="UserUpdate.name"
+        formControlName="name"
+        id="name"
+         placeholder="name">
+         <div *ngIf="f['name'].invalid&&f['name'].touched">
+          <span  *ngIf="f['name'].errors&&f['name'].errors['required']">
+              name must required 
+          </span>
+  
+          </div>
+      </div>
+      
+
+      <div class="form-group col-md-6">
+        <label for="username">Username</label>
+        <input type="text" class="form-control"
+         [(ngModel)]="UserUpdate.username"
+          formControlName="username"
+          id="username"
+          placeholder="username">
+          <div  *ngIf="f['username'].invalid&&f['username'].touched">
+            <span  *ngIf="f['username'].errors&&f['username'].errors['required']">
+              UserName must required 
+            </span>
+            <span  *ngIf="f['username'].errors&&f['username'].errors['CannotContainSpace']">
+              UserName don't contain any CannotContainSpace 
+            </span>
+    
+            </div>
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="email">Email</label>
+        <input type="text" class="form-control"
+        [(ngModel)]="UserUpdate.email"
+         formControlName="email"
+          id="email"
+          placeholder="Email">
+          <div  *ngIf="f['email'].invalid&&f['email'].touched">
+            <span  *ngIf="f['email'].errors&&f['email'].errors['required']">
+                  Email is required 
+            </span>
+            <span  *ngIf="f['email'].errors&&f['email'].errors['email']">
+              Email must be like email@email.com
+            </span>
+    
+            </div>
+
+      </div>
+      <div class="form-group col-md-6">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control"
+         [(ngModel)]="UserUpdate.phone"
+          formControlName="phone"
+          id="phone"
+          placeholder="phone">
+          <div  *ngIf="f['phone'].invalid&&f['phone'].touched">
+            <span  *ngIf="f['phone'].errors&&f['phone'].errors['required']">
+              phone must required 
+            </span>
+            <span  *ngIf="f['phone'].errors&&f['phone'].errors['pattern']">
+               phone must be number and must be 11 number
+            </span>
+    
+            </div>
+
+      </div>
+    </div>
+    <div formGroupName="address">
+    <div class="row"  >
+      <div class="form-group col-md-6">
+        <label for="city">City</label>
+        <input type="text" class="form-control"
+        [(ngModel)]="UserUpdate.address.city"
+        formControlName="city" id="city"
+         placeholder="city">
+         <div  *ngIf="a['city'].invalid&&a['city'].touched">
+          <span  *ngIf="a['city'].errors&&a['city'].errors['required']">
+            City must required 
+          </span>
+        
+  
+          </div>
+
+      </div>
+      <div class="form-group col-md-6">
+        <label for="street">Street</label>
+        <input type="text" class="form-control"
+         [(ngModel)]="UserUpdate.address.street"
+           formControlName="street" id="street" placeholder="street">
+           <div  *ngIf="a['street'].invalid&&a['street'].touched">
+            <span  *ngIf="a['street'].errors&&a['street'].errors['required']">
+              street must required 
+            </span>
+           
+    
+            </div>
+
+      </div>
+
+    </div>
+    <div class="row" >
+      <div class="form-group col-md-6">
+        <label for="zipcode">ZipCode</label>
+        <input type="text" class="form-control"
+        [(ngModel)]="UserUpdate.address.zipcode"
+        formControlName="zipcode"
+        id="zipcode"
+         placeholder="zipcode">
+         <div  *ngIf="a['zipcode'].invalid&&a['zipcode'].touched">
+          <span  *ngIf="a['zipcode'].errors&&a['zipcode'].errors['required']">
+            zipcode must required 
+          </span>
+          
+          </div>
+
+      </div>
+      <div class="form-group col-md-6">
+        <label for="suite">Suite</label>
+        <input type="text" class="form-control"
+         [(ngModel)]="UserUpdate.address.suite"
+          formControlName="suite"
+           id="suite"
+           placeholder="suite">
+           <div  *ngIf="a['suite'].invalid&&a['suite'].touched">
+            <span  *ngIf="a['suite'].errors&&a['suite'].errors['required']">
+              suite must required 
+            </span>
+           
+    
+            </div>
+
+
+      </div>
+    </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="website">Website</label>
+        <input type="text" class="form-control"
+        [(ngModel)]="UserUpdate.website"
+         formControlName="website"
+          id="website"
+         placeholder="website">
+         <div  *ngIf="f['website'].invalid&&f['website'].touched">
+          <span  *ngIf="f['website'].errors&&f['website'].errors['required']">
+            website must required 
+          </span>
+          
+  
+          </div>
+
+      </div>
+      <div class="form-group col-md-6" formGroupName="company">
+        <label for="name">Company Name</label>
+        <input type="text" class="form-control"
+        [(ngModel)]="UserUpdate.company.name"
+        formControlName="name"
+         id="name"
+        placeholder="name">
+        <div  *ngIf="c['name'].invalid&&c['name'].touched">
+          <span  *ngIf="c['name'].errors&&c['name'].errors['required']">
+            UserName must required 
+          </span>
+         
+          </div>
+
+
+      </div>
+
+    </div>
+    <div class="row">
+
+        <button type="submit" [disabled]="UserForm.invalid"class="btn btn-primary">Save</button>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-10">
+      <input type="text" [(ngModel)]="Id" #id class="form-control"
+      (keyup.esc)="goToBack()"
+      placeholder="Search User By id .....">
+    </div>
+    <div class="col-2">
+      <button type="button"
+      class="btn btn-success"
+       (click)="getUserById(id)">
+       Search
+      </button>
+    </div>
+
+  </div>
+  <table class="table table-striped table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Username</th>
+        <th scope="col">City</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+
+
+      </tr>
+    </thead>
+    <tbody *ngIf="!isHidden">
+       <tr *ngFor="let  user of Users; let i = index" >
+        <td>{{i+1}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.address.city}}</td>
+
+
+        <td><button type="button" class="btn btn-primary"
+          (click)="ClickToUpdate(user)">
+          Update
+        </button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger"
+          (click)="DeleteUser(user)">
+          Delete
+        </button>
+        </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="isHidden&& Id<=10">
+      <tr>
+          <td>{{Id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.address.city}}</td>
+          <td><button type="button"
+            class="btn btn-primary"
+             (click)="ClickToUpdate(user)">
+             Update
+            </button>
+          </td>
+          <td>
+            <button type="button"
+            class="btn btn-danger"
+             (click)="DeleteUser(user)">
+             Delete
+            </button>
+          </td>
+      </tr>
+
+      </tbody>
+      <h4 *ngIf="Id>=10"> Id is not found Try agian.....</h4>
+
+  </table>
+</div>
