@@ -1,0 +1,35 @@
+ h4{
+  color:gray;
+}
+ h4 a , .col-4 a{
+  color:red;
+  text-decoration:none;
+}
+ .col-4 a{
+  float:right;
+  margin-right: 20px;
+}
+#con , .check{
+  width:90%;
+  
+  margin:10px auto;
+  
+  }
+  .col-2{
+  text-align:center;
+  }
+  img{
+  width:40px;
+  margin-right:10px;
+  }
+  .google{
+    border:1px solid ;
+    padding:10px;
+    text-align:center;
+    cursor:pointer;
+  }
+  .col-8{
+    margin-left:30px;
+  }label{
+    margin-left:5px;
+  }

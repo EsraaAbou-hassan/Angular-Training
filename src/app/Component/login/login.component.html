@@ -1,0 +1,87 @@
+
+   
+   <form class="login" #f="ngForm">
+    <h1>Login</h1>
+    <h4>Don't have account
+       <a
+           routerLinkActive="active-link"
+           routerLink="/signup">
+           sign up !
+        </a>
+    </h4>
+    
+  
+   
+    <div class="row">
+      <div class="col">
+        <mat-form-field   appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="email" name="email" required>
+          <mat-error> the email is required</mat-error>
+        </mat-form-field>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ?  'password' : 'text'" [(ngModel)]="password" 
+          name="password" required>
+          <div mat-icon-button matSuffix (click)="hide = !hide" 
+            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon *ngIf="hide"><i class="fa fa-eye-slash" aria-hidden="true"></i></mat-icon>
+              <mat-icon *ngIf="!hide"><i class="fa fa-eye" aria-hidden="true"></i></mat-icon>
+           </div>
+           <mat-error> the password is required</mat-error>
+    </mat-form-field>
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-primary" [disabled]="!f.valid" (click)="login()">Login </button>
+
+      </div>
+      
+    </div>
+    <div class="row check" >
+      <div class="col-7">
+        <input  type="checkbox" value="" id="remmember">
+        <label  for="remmember">
+           Remember me
+        </label>
+      </div>
+      <div class="col-4">
+        <a href="#">
+           Forget Password
+        </a>
+      </div>
+      
+    </div>
+    <div class="row" id="con">
+      <div class="col-5">
+        <hr>
+
+      </div>
+      <div class="col-2">
+        <span>or</span>
+
+      </div>
+      <div class="col-5">
+        <hr>
+
+      </div>
+
+
+    </div>
+    <div class="row google">
+      <div class="col"  (click)="Loginwithgoogle()">
+            <img src="../assets/Images/google-icon.png"/>
+            <span> log in with google </span>
+      </div>
+    </div>
+  </form>
+   
+  
+

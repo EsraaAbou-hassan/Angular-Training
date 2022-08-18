@@ -1,0 +1,70 @@
+<form class="sign" #f="ngForm">
+    <h1>Sign Up</h1>
+    
+    
+   
+    <div class="row">
+      <div class="col">
+        <mat-form-field  appearance="outline">
+          <mat-label>UserName</mat-label>
+          <input matInput [(ngModel)]="username"
+           name="username" 
+          required>
+          <mat-error> the username is required</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="email" name="email" required>
+          <mat-error> the email is required</mat-error>
+
+        </mat-form-field>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ?  'password' : 'text'" [(ngModel)]="password" required
+                name="password">
+                <div mat-icon-button matSuffix (click)="hide = !hide" 
+                  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon *ngIf="hide"><i class="fa fa-eye-slash" aria-hidden="true"></i></mat-icon>
+                    <mat-icon *ngIf="!hide"><i class="fa fa-eye" aria-hidden="true"></i></mat-icon>
+                 </div>
+                 <mat-error> the password is required</mat-error>
+          </mat-form-field>
+         
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm Password</mat-label>
+           <input matInput [type]="hide ?  'password' : 'text'" required>
+           <div mat-icon-button matSuffix (click)="hide = !hide" 
+                  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon *ngIf="hide"><i class="fa fa-eye-slash" aria-hidden="true"></i></mat-icon>
+                    <mat-icon *ngIf="!hide"><i class="fa fa-eye" aria-hidden="true"></i></mat-icon>
+        </div>
+        <mat-error> the confirm Password is required</mat-error>
+         </mat-form-field>
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-primary" [disabled]="!f.valid"
+        (click)="SignUp()">Sign Up </button>
+
+      </div>
+      
+    </div>
+    
+    
+  </form>

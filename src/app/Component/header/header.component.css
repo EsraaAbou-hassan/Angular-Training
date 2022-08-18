@@ -1,0 +1,49 @@
+.container-fluid *{
+  padding-right: 30px;
+
+}.nav-link
+{
+  font-size: 20px;
+  color:whitesmoke;
+}
+.nav-link:hover,.nav-link:active,.navbar-brand:hover,.navbar-brand:active{
+  color:yellow
+}
+
+input{
+  max-width: 50%;
+  margin-left: 20%;
+}
+.shopping{
+  width: 300px;
+}
+.fa{
+     margin-left :30px;
+
+}
+.cart{
+text-align:center;
+  color:whitesmoke;
+}
+.cart i{
+  font-size:30px;
+}
+.bg-primary{
+  width:50px;
+  margin-left:20px;
+  padding:5px;
+  border-radius:30%;
+  text-align:center;
+}.bg-primary span{
+  margin-left:12px;
+}
+
+.navbar-brand{
+  margin-left:60px;
+  margin-right: 50px;
+  font-size: 25px;
+  font-weight: bold;
+  color:whitesmoke;
+}.dropdown{
+   cursor:pointer;
+}

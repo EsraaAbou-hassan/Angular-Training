@@ -1,0 +1,19 @@
+.contanier{
+  margin:10px auto;
+}
+table{
+  width:70%;
+  margin:10px auto;
+}
+.img{
+  width:100px;
+  height:100px;
+  border-radius:100%;
+  background-size:cover;
+  margin:5px auto
+
+}
+.btn{
+
+   margin: 10px
+}

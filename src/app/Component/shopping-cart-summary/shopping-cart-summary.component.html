@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-header text-center">
+     Order Summery
+  </div>
+  <div class="card-body">
+  
+    <p class=" text-center">you have {{cart?.totalItemsCount}} item in your cart</p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" 
+      *ngFor="let i of cart.items">
+     
+      {{i?.title}} &nbsp; {{i?.price}}   &nbsp;{{i?.quantity}}
+     <span class="float-right">
+      {{i.totalPrice|currency:'USD':true}}
+     </span>
+    </li>
+    <li class="list-group-item footer">
+   Total
+    <span class="float-right">
+      {{cart.totalPrice|currency:'USD':true}}
+    </span>
+  </li>
+    </ul>
+ </div>
+  
+</div>
+     

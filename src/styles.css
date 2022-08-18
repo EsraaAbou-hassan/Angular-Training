@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@import "~bootstrap/dist/css/bootstrap.css";
+
+
+ @import "~font-awesome/css/font-awesome.css";
+
+
+ form{
+  width:50%;
+  margin: 20px auto;
+  
+}
+form,.card{
+  border:3px solid rgb(228, 220, 220);
+  padding :10px;
+  border-radius:10px;
+  box-shadow: 3px  3px  3px #dbe1e7cc,-3px  -3px  3px #dbe1e7cc;
+  
+}
+form h1,form h4{
+text-align:center;
+}
+
+.login mat-form-field,form .btn,.login .google,
+ .sign mat-form-field,.add mat-form-field   {
+  display:block;
+  width:90%;
+  margin:10px auto;
+}
+.login .btn,.sign .btn {
+    padding:15px;
+}
+.login .btn,.sign .btn,.login .google{
+ border-radius:30px;
+} 
+.login .col span ,.login button,form .btn{
+font-size:20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

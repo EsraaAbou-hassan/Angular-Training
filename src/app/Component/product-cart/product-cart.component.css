@@ -1,0 +1,15 @@
+.card{
+    height:400px;
+    width:20rem;
+    margin:20px;
+  }
+  .card img{
+    height:60%;
+  }
+  .card-footer{
+    padding:0;
+  }
+  .btn{width:100%}
+  .card-footer .btn{
+   cursor:pointer
+   }

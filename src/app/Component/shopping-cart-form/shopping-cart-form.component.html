@@ -1,0 +1,63 @@
+<form class="sign" #f="ngForm">
+            
+            
+          
+    <div class="row">
+      <div class="col">
+        <mat-form-field  appearance="outline">
+          <mat-label >Name</mat-label>
+          <input matInput 
+          [(ngModel)]="shipping.name"
+          name="name" 
+          required>
+          <mat-error> the name is required</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Address1</mat-label>
+          <input matInput 
+          [(ngModel)]="shipping.address1"
+          name="address1" required>
+          <mat-error> the Adress is required</mat-error>
+
+        </mat-form-field>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="outline">
+                <mat-label >Address2</mat-label>
+                <input matInput  [(ngModel)]="shipping.address2" name="address2">
+                
+          </mat-form-field>
+        
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>City</mat-label>
+          <input matInput  [(ngModel)]="shipping.city" name="city" required>
+          <mat-error> the city is required</mat-error>
+
+        </mat-form-field>
+      </div>
+
+    </div>
+  
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-primary" [disabled]="!f.valid"
+        (click)=PlaceOrder()>Place Order </button>
+
+      </div>
+      
+    </div>
+    
+    
+</form>

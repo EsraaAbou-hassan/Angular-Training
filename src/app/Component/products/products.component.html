@@ -1,0 +1,7 @@
+<div class="row" *ngIf="cart$|async as cart">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let product of filterProducts">
+      <app-product-cart [product]='product' [showAction]="true"
+      [shopping-cart]='cart'></app-product-cart>
+    </div>
+
+  </div>

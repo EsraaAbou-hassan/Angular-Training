@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+          <a class="navbar-brand"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true}"
+          routerLink="/">Amazon</a>
+
+          <button class="navbar-toggler" type="button"
+          data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false"
+          (click)="isClicked()"
+          aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown"[class.show]="isOpen">
+            <a class="nav-link" aria-current="page"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact:true}"
+             routerLink="/">Home</a>
+
+            <div class="input-group mb-10">
+              <input type="text" class="form-control"
+              placeholder="Search...." aria-label="earch Prouduct"
+              aria-describedby="se-product">
+              <span class="input-group-text" id="se-product">
+
+                <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a class="nav-link shopping"
+                 aria-current="page"
+                 routerLinkActive="active"
+                 [routerLinkActiveOptions]="{exact:true}"
+                 routerLink="shopping-chart">
+                 <span class="cart badge" *ngIf="cart$|async as cart" >
+                  <div class="bg-primary"><span>{{cart.totalItemsCount}}</span></div>
+                  <div> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  </div></span>
+
+
+                </a>
+
+                <ng-template #anonymoususer>
+                      <a
+                      [routerLinkActiveOptions]="{exact:true}"
+                    class="nav-link"
+                    routerLinkActive="active"
+                    routerLink="/login">Login
+                    </a>
+                </ng-template>
+
+            <div ngbDropdown *ngIf="user; else anonymoususer">
+              <a
+              class="nav-link dropdown"
+               ngbDropdownToggle>
+               {{ user.name}}
+
+              </a>
+              <div ngbDropdownMenu aria-labelledby="dropdown">
+                <a ngbDropdownItem routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}"
+                routerLink="/myOrders/{{userId}}">My orders</a>
+                <ng-container *ngIf="user.isAdmin">
+                  <a ngbDropdownItem routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/admin/orders">Manage Orders</a>
+                  <a ngbDropdownItem routerLinkActive="active"[routerLinkActiveOptions]="{exact:true}"  routerLink="/admin/products">Manage Products</a>
+                </ng-container>
+
+
+
+                <a ngbDropdownItem (click)="logout()">Log Out</a>
+              </div>
+            </div>
+
+
+          </div>
+    </div>
+  </nav>
