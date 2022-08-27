@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ShoppingCartComponent } from './Component/shopping-cart/shopping-cart.component';
-import { SignupComponent } from './Component/signup/signup.component';
+import { ShoppingCartComponent } from './Component/Shopping/shopping-cart/shopping-cart.component';
+import { SignupComponent } from './Component/Auth/signup/signup.component';
 import { NotFoundComponent } from './Component/Core/not-found/not-found.component';
 import { HomeComponent } from './Component/Core/home/home.component';
-import { MyOrderComponent } from './Component/my-order/my-order.component';
-import { ProductsComponent } from './Component/products/products.component';
-import { CheckOutComponent } from './Component/check-out/check-out.component';
+import { MyOrderComponent } from './Component/Shopping/my-order/my-order.component';
+import { ProductsComponent } from './Component/Product/products/products.component';
+import { CheckOutComponent } from './Component/Shopping/check-out/check-out.component';
 import { AdminProuductsComponent } from './Component/admin/admin-prouducts/admin-prouducts.component';
 import { AdminOrdersComponent } from './Component/admin/admin-orders/admin-orders.component';
 import { AddProductComponent } from './Component/admin/add-product/add-product.component';
 
-import { OrderSuccessComponent } from './Component/order-success/order-success.component';
-import { LoginComponent } from './Component/login/login.component';
+import { OrderSuccessComponent } from './Component/Shopping/order-success/order-success.component';
+import { LoginComponent } from './Component/Auth/login/login.component';
 import {AuthGuardService} from './Service/auth-guard.service';
 import {AdminAuthGurdService} from './Service/admin-auth-gurd.service';
 

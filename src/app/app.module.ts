@@ -12,14 +12,14 @@ import { SideBarComponent } from './Component/Core/side-bar/side-bar.component';
  import { NotFoundComponent } from './Component/Core/not-found/not-found.component';
  import { HomeComponent } from './Component/Core/home/home.component';
 
-import { ShoppingCartComponent } from './Component/shopping-cart/shopping-cart.component';
-import { SignupComponent } from './Component/signup/signup.component';
+import { ShoppingCartComponent } from './Component/Shopping/shopping-cart/shopping-cart.component';
+import { SignupComponent } from './Component/Auth/signup/signup.component';
 
-import { MyOrderComponent } from './Component/my-order/my-order.component';
-import { CheckOutComponent } from './Component/check-out/check-out.component';
-import { ProductsComponent } from './Component/products/products.component';
-import { OrderSuccessComponent } from './Component/order-success/order-success.component';
-import { LoginComponent } from './Component/login/login.component';
+import { MyOrderComponent } from './Component/Shopping/my-order/my-order.component';
+import { CheckOutComponent } from './Component/Shopping/check-out/check-out.component';
+import { ProductsComponent } from './Component/Product/products/products.component';
+import { OrderSuccessComponent } from './Component/Shopping/order-success/order-success.component';
+import { LoginComponent } from './Component/Auth/login/login.component';
 
 import { AdminOrdersComponent } from './Component/admin/admin-orders/admin-orders.component';
 import { AdminProuductsComponent } from './Component/admin/admin-prouducts/admin-prouducts.component';
@@ -44,10 +44,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSortModule} from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { ProductCartComponent } from './Component/product-cart/product-cart.component';
-import { ProductQuantityComponent } from './Component/product-quantity/product-quantity.component';
-import { ShoppingCartSummaryComponent } from './Component/shopping-cart-summary/shopping-cart-summary.component';
-import { ShoppingCartFormComponent } from './Component/shopping-cart-form/shopping-cart-form.component';
+import { ProductCartComponent } from './Component/Product/product-cart/product-cart.component';
+import { ProductQuantityComponent } from './Component/Product/product-quantity/product-quantity.component';
+import { ShoppingCartSummaryComponent } from './Component/Shopping/Shopping/shopping-cart-summary/shopping-cart-summary.component';
+import { ShoppingCartFormComponent } from './Component/Shopping/shopping-cart-form/shopping-cart-form.component';
 // import { CoreModule } from './Component/Core/core.module'
 
 @NgModule({
