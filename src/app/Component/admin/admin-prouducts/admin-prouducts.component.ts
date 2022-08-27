@@ -62,13 +62,7 @@ edit(key:string){
     if(con)
        this.productService.deleteProduct(id);
   }
-  filter(query:string){
-    console.log(this.products);
-     this.filterProducts=(query)?
-        this.products.filter(p=>p.title.toLowerCase().includes(query.toLowerCase()))
-        :this.products;
-
-   }
+  
  
    onSearchClear() {
     this.searchKey = "";

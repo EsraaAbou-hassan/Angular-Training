@@ -15,7 +15,8 @@ export class ProductsComponent implements OnInit {
   products:IProduct[]=[];
   filterProducts:IProduct[]=[];
   cart$:Observable<ShoppingCart>;
- 
+  searchKey:string;
+
  @Input('category') category:string; 
 
   constructor(private productService:ProductService,private route:ActivatedRoute,
@@ -25,9 +26,10 @@ export class ProductsComponent implements OnInit {
   }
 
  async ngOnInit() {
-     this.cart$=await this.shoppingCartService.getCart()
-   this.populateProducts()
-   
+     this.cart$=await this.shoppingCartService.getCart();
+    
+    
+     this.populateProducts()
       
        
 
@@ -44,15 +46,27 @@ export class ProductsComponent implements OnInit {
        return this.route.queryParamMap;
         }))
         .subscribe(params => {
-           this.category=params.get('category');
-           this.applyFilter()
+          localStorage.setItem('category',params.get('category'));
+          this.category=params.get('category');
+           this.searchKey=params.get('searchKey');
+           this.categoryFilter();
+           if(this.searchKey!=null)
+               this.searchFilter();
         }
       )
   }
- private applyFilter(){
-  this.filterProducts=(this.category)?
-  this.products.filter(p=>p.category===this.category)
+ private searchFilter(){
+  this.filterProducts=(this.searchKey)?
+  this.products.filter(p=>p.title.toLowerCase().includes(this.searchKey?.toLowerCase()))
   :this.products;
  }
+ private categoryFilter(){
+  
+
+  this.filterProducts=(this.category)?
+  this.products.filter(p=>p.category==this.category)
+  :this.products;
+ }
+
 
 }

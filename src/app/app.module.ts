@@ -7,13 +7,14 @@ import { environment } from './../environments/environment';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SideBarComponent } from './Component/Core/side-bar/side-bar.component';
+ import { HeaderComponent } from './Component/Core/header/header.component';
+ import { NotFoundComponent } from './Component/Core/not-found/not-found.component';
+ import { HomeComponent } from './Component/Core/home/home.component';
 
-import { SideBarComponent } from './Component/side-bar/side-bar.component';
- import { HeaderComponent } from './Component/header/header.component';
 import { ShoppingCartComponent } from './Component/shopping-cart/shopping-cart.component';
 import { SignupComponent } from './Component/signup/signup.component';
-import { NotFoundComponent } from './Component/not-found/not-found.component';
-import { HomeComponent } from './Component/home/home.component';
+
 import { MyOrderComponent } from './Component/my-order/my-order.component';
 import { CheckOutComponent } from './Component/check-out/check-out.component';
 import { ProductsComponent } from './Component/products/products.component';
@@ -37,8 +38,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {CustomFormsModule} from 'ng2-validation';
 import {MatTableModule} from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
-import { MatPaginatorModule } from '@angular/material/paginator'; 
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import {MatSortModule} from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
@@ -47,14 +48,16 @@ import { ProductCartComponent } from './Component/product-cart/product-cart.comp
 import { ProductQuantityComponent } from './Component/product-quantity/product-quantity.component';
 import { ShoppingCartSummaryComponent } from './Component/shopping-cart-summary/shopping-cart-summary.component';
 import { ShoppingCartFormComponent } from './Component/shopping-cart-form/shopping-cart-form.component';
+// import { CoreModule } from './Component/Core/core.module'
 
 @NgModule({
   declarations: [
     AppComponent,
-    SideBarComponent,
-     HeaderComponent,
+
      ShoppingCartComponent,
      SignupComponent,
+     SideBarComponent,
+     HeaderComponent,
      NotFoundComponent,
      HomeComponent,
      MyOrderComponent,
@@ -81,24 +84,26 @@ import { ShoppingCartFormComponent } from './Component/shopping-cart-form/shoppi
     AngularFireAuthModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    
+
     NgxMatFileInputModule,
     MatSelectModule,
     CustomFormsModule,
     MatTableModule,
-    MatInputModule, 
+    MatInputModule,
     MatPaginatorModule,
-    MatProgressSpinnerModule, 
+    MatProgressSpinnerModule,
     MatSortModule,
     MatIconModule,
     MatButtonModule
+    // CoreModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
+  exports:[ProductsComponent],
   providers: [],
   bootstrap: [AppComponent]
-  
-  
+
+
 })
 export class AppModule { }
