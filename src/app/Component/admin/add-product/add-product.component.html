@@ -1,104 +1,108 @@
+<div class="row">
 
-   <form class="add" [formGroup]="AddProductForm"
-     (ngSubmit)="product!=null?update():save(AddProductForm.value)">
-
-
-
-
-     <div class="row">
-       <div class="col">
-         <mat-form-field  appearance="outline">
-           <mat-label>Title</mat-label>
-           <input matInput [(ngModel)]="product.title" #title  formControlName="title">
-           <mat-error *ngIf="f['title'].errors&&f['title'].errors['required']">
-             the title is required</mat-error>
-         </mat-form-field>
-       </div>
-
-     </div>
+  <div class="row">
+    <div class="col">
+            <form class="add" [formGroup]="AddProductForm"
+              (ngSubmit)="id!=null?update():save(AddProductForm.value)">
 
 
 
-     <div class="row">
-       <div class="col">
-         <mat-form-field   appearance="outline">
-           <mat-label>Price</mat-label>
-           <mat-icon matSuffix>$</mat-icon>
 
-            <input matInput  type="number" [(ngModel)]="product.price" formControlName="price" #price>
-            <mat-error>
-                 <span *ngIf="f['price'].errors&&f['price'].errors['required']">
-                   the price is required
-                 </span>
-                 <span *ngIf="f['price'].errors&&f['price'].errors['min']">
-                   the price must be more than 0</span>
-           </mat-error>
+              <div class="row">
+                <div class="col">
+                  <mat-form-field  appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input matInput [(ngModel)]="product.title" #title  formControlName="title">
+                    <mat-error *ngIf="f['title'].errors&&f['title'].errors['required']">
+                      the title is required</mat-error>
+                  </mat-form-field>
+                </div>
+
+              </div>
 
 
-          </mat-form-field>
+
+              <div class="row">
+                <div class="col">
+                  <mat-form-field   appearance="outline">
+                    <mat-label>Price</mat-label>
+                    <mat-icon matSuffix>$</mat-icon>
+
+                      <input matInput  type="number" [(ngModel)]="product.price" formControlName="price" #price>
+                      <mat-error>
+                          <span *ngIf="f['price'].errors&&f['price'].errors['required']">
+                            the price is required
+                          </span>
+                          <span *ngIf="f['price'].errors&&f['price'].errors['min']">
+                            the price must be more than 0</span>
+                    </mat-error>
 
 
-       </div>
-
-     </div>
-     <div class="row">
-       <div class="col">
-
-          <mat-form-field appearance="outline">
-           <mat-label>Category</mat-label>
-           <mat-select [(ngModel)]="product.category" formControlName="category" #category>
-             <mat-option value=""></mat-option>
-             <mat-option *ngFor="let c  of categories$ " [value]="c.key">
-               {{c.name}}
-             </mat-option>
-           </mat-select>
-           <mat-error>the category is required</mat-error>
-
-         </mat-form-field>
-
-       </div>
-
-     </div>
-     <div class="row">
-       <div class="col">
-         <mat-form-field appearance="outline"  >
-           <mat-label>choose Image</mat-label>
-
-           <!-- <ngx-mat-file-input ngModel formControlName="image" (change)="onFileSelected($event)">
-              <mat-icon ngxMatFileInputIcon  ><i class="fa fa-file-image-o fa-2x"
-                aria-hidden="true"></i>
-              </mat-icon>
-           </ngx-mat-file-input> -->
-           <input matInput [(ngModel)]="product.image" formControlName="image" #image />
-
-           <mat-error>  <span *ngIf="f['image'].errors&&f['image'].errors['required']">
-             the image is required
-           </span>
-           <span *ngIf="f['image'].errors&&f['image'].errors['url']">
-             should be path for image</span></mat-error>
+                    </mat-form-field>
 
 
-        </mat-form-field>
-       </div>
+                </div>
 
-     </div>
+              </div>
+              <div class="row">
+                <div class="col">
 
-     <div class="row">
-       <div class="col">
-         <button class="btn btn-primary" type="submit" >Save</button>
+                    <mat-form-field appearance="outline">
+                    <mat-label>Category</mat-label>
+                    <mat-select [(ngModel)]="product.category" formControlName="category" #category>
+                      <mat-option value=""></mat-option>
+                      <mat-option *ngFor="let c  of categories$ " [value]="c.key">
+                        {{c.name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error>the category is required</mat-error>
 
-       </div>
-       <div class="col">
-        <button class="btn btn-danger" type="submit"   (click)="delete()">Delete</button>
-       </div>
+                  </mat-form-field>
 
-     </div>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col">
+                  <mat-form-field appearance="outline"  >
+                    <mat-label>choose Image</mat-label>
+
+                    <!-- <ngx-mat-file-input ngModel formControlName="image" (change)="onFileSelected($event)">
+                        <mat-icon ngxMatFileInputIcon  ><i class="fa fa-file-image-o fa-2x"
+                          aria-hidden="true"></i>
+                        </mat-icon>
+                    </ngx-mat-file-input> -->
+                    <input matInput [(ngModel)]="product.image" formControlName="image" #image />
+
+                    <mat-error>  <span *ngIf="f['image'].errors&&f['image'].errors['required']">
+                      the image is required
+                    </span>
+                    <span *ngIf="f['image'].errors&&f['image'].errors['url']">
+                      should be path for image</span></mat-error>
 
 
-   </form>
+                  </mat-form-field>
+                </div>
 
-  <div class="col-md-6">
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <button class="btn btn-primary" type="submit" >Save</button>
+
+                </div>
+                <div class="col">
+                  <button class="btn btn-danger" type="submit"   (click)="delete()">Delete</button>
+                </div>
+
+              </div>
+
+
+            </form>
+          </div>
+  <div class="col">
    <app-product-cart [product]="product" [showAction]="false"></app-product-cart>
  </div>
+</div>
 
 

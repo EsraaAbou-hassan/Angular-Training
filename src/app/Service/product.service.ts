@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Router ,ActivatedRoute} from '@angular/router';
 
 import { Observable} from 'rxjs';
 import { IProduct } from 'src/app/Model/product';
@@ -9,12 +10,13 @@ import { IProduct } from 'src/app/Model/product';
 })
 export class ProductService {
 
-  constructor(private db:AngularFireDatabase) {
+  constructor(private db:AngularFireDatabase,private router:Router) {
 
    }
   addProduct(product:any){
-    console.log(product);
-   return this.db.list('products').push(product)
+
+    this.router.navigate(['/admin/products']);
+    return this.db.list('products').push(product)
 
   }
   getAllproduct(){
@@ -27,6 +29,8 @@ export class ProductService {
     return this.db.object('/products/'+id).valueChanges();
 
   }updateProduct(product:any,id:string){
+    this.router.navigate(['/admin/products']);
+
     return this.db.object('/products/'+id).update(product);
 
   }deleteProduct(id:string){

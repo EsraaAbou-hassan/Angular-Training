@@ -4,7 +4,8 @@ import { CustomValidators } from 'ng2-validation';
 import { CategoryService } from 'src/app/Service/category.service';
 import { ProductService } from 'src/app/Service/product.service';
 import { Router ,ActivatedRoute} from '@angular/router';
-import {  Observable ,Subscription} from 'rxjs';
+import {  Observable ,Subscription,take} from 'rxjs';
+import { IProduct } from 'src/app/Model/product';
 
 @Component({
   selector: 'app-add-product',
@@ -13,8 +14,8 @@ import {  Observable ,Subscription} from 'rxjs';
 })
 export class AddProductComponent implements OnDestroy {
   categories$:any;
-  product:any={titel:'',category:'',image:'',price:0};
-id:any;
+  product:any={title:'',category:'',image:'',price:0};
+  id:any;
 
 subscription:any;
 
@@ -36,10 +37,10 @@ subscription:any;
       });
     });
   this.id=this.route.snapshot.paramMap.get('id')
-  if(this.id) 
-    this.subscription= this.productService.getProduct(this.id).subscribe(pro=>this.product=pro);
+  if(this.id)
+    this.subscription= this.productService.getProduct(this.id).pipe(take(1)).subscribe(pro=>this.product=pro);
 
-  
+
   this.AddProductForm=this.fb.group({
    title:    ['',Validators.required],
     price:    [0,[Validators.required, Validators.min(0)]],
@@ -53,17 +54,15 @@ subscription:any;
    save(product:any){
   //  const fdata=new FormData();
   //   fdata.append('images',this.selectedFile);
+  this.productService.addProduct(product);
 
-     this.productService.addProduct(product);
-     this.router.navigate(['/admin/products']);
-
-   }ngOnDestroy() {
-    this.subscription.unsubscribe();
+   }
+   ngOnDestroy() {
+    // this.subscription.unsubscribe();
   }
    update(){
       this.productService.updateProduct(this.product,this.id);
       this.product=null;
-      this.router.navigate(['/admin/products']);
 
    }
    delete(){
@@ -71,7 +70,7 @@ subscription:any;
     if(!con) return
     this.productService.deleteProduct(this.id);
     this.router.navigate(['/admin/products']);
-   
+
   }
    get f(): { [key: string]: AbstractControl } {
     return this.AddProductForm.controls;
